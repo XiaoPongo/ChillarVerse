@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChillarVerse</title>
+  <script src="config.js"></script>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --primary-color: #333366;
+      --secondary-color: #FF4500;
+      --background-color: #000033;
+      --accent-color: #FFFF00;
+      --text-color: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 1.5em;
+      color: var(--text-color);
+    }
+
+    .universes {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .universe-card {
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .universe-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px var(--accent-color);
+    }
+
+    .universe-card h2 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+
+    .universe-card p {
+      color: var(--text-color);
+      font-size: 1em;
+      padding: 0 10px;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer .social-icons a {
+      color: var(--accent-color);
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      .universes {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .universe-card {
+        width: 80%;
+        height: auto;
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body onload="includeHTML()">
+  <div w3-include-html="components/header.html"></div>
+  <main>
+    <section class="hero">
+      <h1>ChillarVerse</h1>
+      <p>Welcome to the multiverse of money wisdom</p>
+    </section>
+    <section class="universes">
+      <!-- Universe Card Template -->
+      <div class="universe-card" onclick="location.href='budgetverse.html'">
+        <h2>BudgetVerse</h2>
+        <p>A no-nonsense savings reality</p>
+      </div>
+      <!-- End Template -->
+      <div class="universe-card" onclick="location.href='cryptoverse.html'">
+        <h2>CryptoVerse</h2>
+        <p>Where coins flip you</p>
+      </div>
+      <div class="universe-card" onclick="location.href='lazysaverland.html'">
+        <h2>LazySaverLand</h2>
+        <p>Earn more by doing less</p>
+      </div>
+      <!-- Add more universe cards here -->
+    </section>
+  </main>
+  <div w3-include-html="components/footer.html"></div>
+</body>
+</html>

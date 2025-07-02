@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | ChillarVerse</title>
+  <script src="../config.js"></script>
+  <script src="../scripts.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --primary-color: #333366;
+      --secondary-color: #FF4500;
+      --background-color: #000033;
+      --accent-color: #FFFF00;
+      --text-color: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    main h1 {
+      font-size: 2.5em;
+      color: var(--accent-color);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer .social-icons a {
+      color: var(--accent-color);
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      main h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body onload="includeHTML()">
+  <div w3-include-html="../components/header.html"></div>
+  <main>
+    <h1>ChillarVerse Blog</h1>
+    <p>Explore money wisdom articles.</p>
+    <!-- Add blog posts here -->
+  </main>
+  <div w3-include-html="../components/footer.html"></div>
+</body>
+</html>
