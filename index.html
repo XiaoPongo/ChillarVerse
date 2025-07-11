@@ -3,33 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chillarverse – Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chillarverse - Where Your Rupees Become Superheroes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles for the entire page */
+        /* Base styles */
+        :root {
+            --primary-blue: #1a5fba;
+            --primary-dark-blue: #0d4a9c;
+            --secondary-green: #2ecc71;
+            --accent-yellow: #f1c40f;
+            --accent-red: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --comic-border: 3px solid var(--dark);
+            --comic-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue));
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
         }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.1) 0px, transparent 2px),
+                radial-gradient(circle at 20% 70%, rgba(241, 196, 15, 0.1) 0px, transparent 3px),
+                radial-gradient(circle at 80% 40%, rgba(231, 76, 60, 0.1) 0px, transparent 4px),
+                radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.1) 0px, transparent 3px);
+            background-size: 300px 300px;
+            z-index: -1;
         }
         
         /* Layout containers */
@@ -37,255 +58,421 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 15px;
         }
         
-        /* Hero section styles */
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .comic-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 3px 3px 0 var(--dark);
+            letter-spacing: 2px;
+        }
+        
+        /* Navbar placeholder */
+        #navbar {
+            padding: 20px 0;
+        }
+        
+        /* Hero section - Comic book cover style */
         .hero {
-            background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-            color: white;
-            padding: 5rem 1rem;
             text-align: center;
+            padding: 80px 20px 60px;
             position: relative;
-            overflow: hidden;
+            margin-top: 30px;
         }
         
         .hero::before {
             content: "";
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: var(--comic-border);
+            border-radius: 10px;
+            z-index: -1;
+            background: linear-gradient(145deg, #1a5fba, #0d4a9c);
+            box-shadow: var(--comic-shadow);
         }
         
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-size: 4.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+            line-height: 1;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary-green);
+        }
+        
+        .comic-starburst {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: var(--accent-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            transform: rotate(-15deg);
+            border: var(--comic-border);
+            box-shadow: var(--comic-shadow);
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+        
+        .starburst-1 {
+            top: 10%;
+            left: 5%;
+        }
+        
+        .starburst-2 {
+            bottom: 10%;
+            right: 5%;
         }
         
         /* Button styles */
-        .btn {
+        .hero-btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: white;
-            color: var(--primary);
+            padding: 15px 40px;
+            background: var(--secondary-green);
+            color: var(--dark);
             text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid white;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: var(--shadow);
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            border: var(--comic-border);
+            border-radius: 8px;
+            box-shadow: var(--comic-shadow);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
         }
         
-        .btn:hover {
-            background-color: transparent;
-            color: white;
-            transform: translateY(-3px);
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+            background: var(--accent-yellow);
         }
         
-        /* Features section */
+        .hero-btn:active {
+            transform: translateY(0);
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Features section - Your Power Trio */
         .features {
-            padding: 5rem 1rem;
-            background-color: white;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--dark);
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+            color: var(--accent-yellow);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
-        .features-grid {
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: var(--secondary-green);
+            border-radius: 2px;
+        }
+        
+        .power-trio {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        .feature-card {
+        .comic-card {
             background: var(--light);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            border: var(--comic-border);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--comic-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
             color: var(--dark);
-        }
-        
-        .feature-desc {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-link {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .feature-link:hover {
-            color: var(--primary-dark);
-        }
-        
-        /* Footer placeholder styling */
-        #footer-placeholder {
-            background-color: var(--dark);
-            color: white;
             text-align: center;
-            padding: 2rem;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
+        .comic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .card-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .card-desc {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .card-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--secondary-green);
+            color: var(--dark);
+            text-decoration: none;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            border: var(--comic-border);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .card-btn:hover {
+            background: var(--accent-yellow);
+            transform: scale(1.05);
+        }
+        
+        /* Comic speech bubble */
+        .speech-bubble {
+            position: absolute;
+            background: white;
+            border: var(--comic-border);
+            border-radius: 20px;
+            padding: 15px;
+            font-size: 1.1rem;
+            max-width: 200px;
+            box-shadow: var(--comic-shadow);
+            z-index: 10;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .bubble-1 {
+            top: -40px;
+            right: -30px;
+            transform: rotate(5deg);
+        }
+        
+        .bubble-2 {
+            bottom: -40px;
+            left: -30px;
+            transform: rotate(-5deg);
+        }
+        
+        .bubble-3 {
+            top: -40px;
+            left: -30px;
+            transform: rotate(-5deg);
+        }
+        
+        /* Footer placeholder */
+        #footer {
+            padding: 40px 0 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        #footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--secondary-green);
+            box-shadow: 0 0 10px var(--secondary-green);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: rotate(-15deg) scale(1); }
+            50% { transform: rotate(-15deg) scale(1.05); }
+            100% { transform: rotate(-15deg) scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(5deg); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 3.5rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero h2 {
+                font-size: 2rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 15px 40px;
+            }
+            
+            .comic-starburst {
+                width: 120px;
+                height: 120px;
+                font-size: 1.4rem;
+            }
+            
+            .hero-btn {
+                font-size: 1.5rem;
+                padding: 12px 30px;
+            }
+            
+            .power-trio {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 50px auto 0;
             }
         }
         
         @media (max-width: 480px) {
-            .hero {
-                padding: 3rem 1rem;
-            }
-            
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2.8rem;
             }
             
-            .features {
-                padding: 3rem 1rem;
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .comic-starburst {
+                position: relative;
+                margin: 20px auto;
+                transform: rotate(-15deg);
+                width: 140px;
+                height: 140px;
+            }
+            
+            .starburst-1, .starburst-2 {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: 30px auto;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navbar placeholder -->
-    <div id="navbar">
-        <nav class="navbar">
-            <div class="container">
-                <a href="index.html" class="logo">Chillarverse</a>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
-                
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="basics.html">Money Basics</a></li>
-                    <li><a href="budgeting.html">Budgeting</a></li>
-                    <li><a href="investing.html">Investing</a></li>
-                    <li><a href="fire.html">FIRE</a></li>
-                    <li><a href="tools.html">Tools</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <div id="navbar"></div>
     
-    <!-- Main content -->
     <main>
-        <!-- Hero section -->
+        <!-- Hero Section - Comic Book Cover Style -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Master Your Money, Build Your Future</h1>
-                <p>Welcome to Chillarverse - your journey to financial independence starts here. Learn essential money skills, discover smart investment strategies, and take control of your financial destiny.</p>
-                <a href="basics.html" class="btn">Start Your Financial Journey</a>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="comic-title">💸 Welcome to the Chillarverse!</h1>
+                    <h2>Where your rupees become superheroes</h2>
+                    
+                    <div class="comic-starburst starburst-1">
+                        NEW <br>ADVENTURE!
+                    </div>
+                    
+                    <div class="comic-starburst starburst-2">
+                        FINANCIAL <br>SUPERPOWERS!
+                    </div>
+                    
+                    <a href="basics.html" class="hero-btn">Begin Your Origin Story</a>
+                </div>
             </div>
         </section>
         
-        <!-- Features section -->
+        <!-- Features Section - Your Power Trio -->
         <section class="features">
             <div class="container">
-                <h2 class="section-title">Explore Financial Freedom</h2>
-                <div class="features-grid">
-                    <article class="feature-card">
-                        <div class="feature-icon">💼</div>
-                        <h3 class="feature-title">Budgeting Mastery</h3>
-                        <p class="feature-desc">Learn to create budgets that work for your lifestyle, track expenses effectively, and achieve your savings goals without sacrificing what you love.</p>
-                        <a href="budgeting.html" class="feature-link">Learn Budgeting →</a>
-                    </article>
+                <h2 class="section-title">Your Financial Power Trio</h2>
+                
+                <div class="power-trio">
+                    <!-- Budgeting Card -->
+                    <div class="comic-card">
+                        <i class="fas fa-chart-pie card-icon"></i>
+                        <h3 class="card-title">Budgeting</h3>
+                        <p class="card-desc">Master the Art of Rupee Control and take command of your financial destiny!</p>
+                        <a href="budgeting.html" class="card-btn">Learn More</a>
+                        
+                        <div class="speech-bubble bubble-1">
+                            "I used to lose track of my rupees, now I control them!"
+                        </div>
+                    </div>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon">📈</div>
-                        <h3 class="feature-title">Smart Investing</h3>
-                        <p class="feature-desc">Discover how to build wealth through smart investing. From stocks to mutual funds, learn strategies that match your risk profile and goals.</p>
-                        <a href="investing.html" class="feature-link">Explore Investments →</a>
-                    </article>
+                    <!-- Investing Card -->
+                    <div class="comic-card">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h3 class="card-title">Investing</h3>
+                        <p class="card-desc">Let Your Money Multiply in the Multiverse of investment opportunities!</p>
+                        <a href="investing.html" class="card-btn">Learn More</a>
+                        
+                        <div class="speech-bubble bubble-2">
+                            "My investments are growing faster than a superhero!"
+                        </div>
+                    </div>
                     
-                    <article class="feature-card">
-                        <div class="feature-icon">🔥</div>
-                        <h3 class="feature-title">FIRE Movement</h3>
-                        <p class="feature-desc">Achieve Financial Independence and Retire Early. Learn the principles and strategies to escape the 9-5 grind and live life on your terms.</p>
-                        <a href="fire.html" class="feature-link">Join FIRE Movement →</a>
-                    </article>
+                    <!-- FIRE Card -->
+                    <div class="comic-card">
+                        <i class="fas fa-fire card-icon"></i>
+                        <h3 class="card-title">FIRE</h3>
+                        <p class="card-desc">Break Free from the Rat Race and achieve Financial Independence!</p>
+                        <a href="fire.html" class="card-btn">Learn More</a>
+                        
+                        <div class="speech-bubble bubble-3">
+                            "I escaped the 9-5 grind with Chillarverse!"
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     
     <!-- Footer placeholder -->
-    <div id="footer-placeholder">
-        <div class="container">
-            <p>Chillarverse © 2023 | Made with ₹₹ in India</p>
-        </div>
-    </div>
+    <div id="footer"></div>
     
     <!-- JavaScript to load components -->
     <script>
@@ -300,14 +487,27 @@
                 document.getElementById(id).innerHTML = html;
             } catch (error) {
                 console.error(error);
-                // Keep the fallback content if any exists
+                // Fallback content if needed
+                if (id === 'navbar') {
+                    document.getElementById(id).innerHTML = `
+                        <nav class="container">
+                            <a href="index.html" class="logo">Chillarverse</a>
+                            <div class="nav-links">
+                                <a href="basics.html">Basics</a>
+                                <a href="budgeting.html">Budgeting</a>
+                                <a href="investing.html">Investing</a>
+                                <a href="fire.html">FIRE</a>
+                            </div>
+                        </nav>
+                    `;
+                }
             }
         }
 
-        // Load navbar and footer
+        // Load navbar and footer when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
             loadHTML('navbar', 'components/navbar.html');
-            loadHTML('footer-placeholder', 'components/footer.html');
+            loadHTML('footer', 'components/footer.html');
         });
     </script>
 </body>
