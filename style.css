@@ -1,0 +1,118 @@
+body {
+    background-color: #1E90FF; /* Blue primary color */
+    color: #FFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-callout {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.comic-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFD700; /* Yellow for comic vibe */
+    text-shadow: 2px 2px #000;
+}
+
+.super-subtext {
+    font-size: 1.5rem;
+    color: #90EE90; /* Light green accent */
+}
+
+.starburst {
+    position: relative;
+    display: inline-block;
+}
+
+.starburst::before {
+    content: "★";
+    position: absolute;
+    color: #FFD700;
+    font-size: 2rem;
+    top: -1rem;
+    left: -1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.cash-blast {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #32CD32; /* Green secondary color */
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.cash-blast:hover {
+    transform: scale(1.1);
+}
+
+.power-trio {
+    padding: 2rem;
+    text-align: center;
+}
+
+.trio-header {
+    font-size: 2.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px #000;
+}
+
+.comic-panel {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: #FFFFFF;
+    color: #1E90FF;
+    border: 5px solid #FFD700;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 20rem;
+    text-align: center;
+    box-shadow: 5px 5px 0 #000;
+}
+
+.panel-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .comic-panel {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%;
+    }
+    .comic-title {
+        font-size: 2rem;
+    }
+    .trio-header {
+        font-size: 1.8rem;
+    }
+}
