@@ -1,50 +1,417 @@
-<nav class="navbar">
-  <div class="nav-container">
-    <!-- Logo -->
-    <a href="index.html" class="logo">Chillarverse</a>
-    
-    <!-- Navigation Menu -->
-    <ul class="nav-menu">
-      <!-- Budget Universe -->
-      <li class="nav-item universe-budget">
-        <a href="#" class="nav-link">💸 Budget</a>
-        <div class="dropdown">
-          <ul class="dropdown-content">
-            <li><a href="basics.html" class="dropdown-link">Money Basics</a></li>
-            <li><a href="banking.html" class="dropdown-link">Banking & UPI</a></li>
-            <li><a href="budgeting.html" class="dropdown-link">Budgeting Tools</a></li>
-          </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chillarverse Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #0d4a9c, #1a5fba);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Demo content */
+        .demo-content {
+            text-align: center;
+            margin-top: 100px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 3px solid white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .demo-content h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #f1c40f;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            background-color: #1a5fba;
+            padding: 0 20px;
+            border-bottom: 3px solid #0d4a9c;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 70px;
+        }
+        
+        .logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2.2rem;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #2ecc71;
+            transform: scale(1.05);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            height: 100%;
+        }
+        
+        .nav-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .nav-link:hover {
+            color: #f1c40f;
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            border: 3px solid #2c3e50;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content {
+            padding: 10px 0;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 12px 20px;
+            color: #2c3e50;
+            text-decoration: none;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #e8f4fc;
+            color: #1a5fba;
+            padding-left: 25px;
+        }
+        
+        .dropdown-content a:hover::before {
+            content: "•";
+            position: absolute;
+            left: 15px;
+            color: #2ecc71;
+        }
+        
+        /* Hamburger menu (mobile) */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger::before,
+        .hamburger::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger::before {
+            top: -8px;
+        }
+        
+        .hamburger::after {
+            top: 8px;
+        }
+        
+        /* Universe indicators */
+        .universe-budget .dropdown {
+            border-top: 4px solid #2ecc71;
+        }
+        
+        .universe-invest .dropdown {
+            border-top: 4px solid #f1c40f;
+        }
+        
+        .universe-fire .dropdown {
+            border-top: 4px solid #e74c3c;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .nav-link {
+                font-size: 1.3rem;
+                padding: 10px 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: #0d4a9c;
+                border-top: 3px solid #1a5fba;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+                gap: 0;
+            }
+            
+            .nav-menu.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .nav-item {
+                width: 100%;
+                height: auto;
+                padding: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .dropdown {
+                position: static;
+                width: 100%;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .nav-item:hover .dropdown {
+                max-height: 500px;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .dropdown-content {
+                padding: 0;
+            }
+            
+            .dropdown-content a {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding-left: 40px;
+            }
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border: 2px solid #2ecc71;
+        }
+        
+        .instructions h2 {
+            font-family: 'Bangers', cursive;
+            color: #f1c40f;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .instructions p {
+            font-style: italic;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar implementation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">Chillarverse</a>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <!-- Budget Universe -->
+                <li class="nav-item universe-budget">
+                    <a href="#" class="nav-link">💸 Budget</a>
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="basics.html">Money Basics</a>
+                            <a href="banking.html">Banking & UPI</a>
+                            <a href="budgeting.html">Budgeting Tools</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- Invest Universe -->
+                <li class="nav-item universe-invest">
+                    <a href="#" class="nav-link">📈 Invest</a>
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="investing.html">Investing 101</a>
+                            <a href="tools.html">Investment Tools</a>
+                            <a href="glossary.html">Glossary</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- FIRE Universe -->
+                <li class="nav-item universe-fire">
+                    <a href="#" class="nav-link">🔥 FIRE</a>
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="fire.html">What is FIRE?</a>
+                            <a href="career.html">Career Freedom</a>
+                            <a href="escape.html">Escape Plan</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
         </div>
-      </li>
-      
-      <!-- Invest Universe -->
-      <li class="nav-item universe-invest">
-        <a href="#" class="nav-link">📈 Invest</a>
-        <div class="dropdown">
-          <ul class="dropdown-content">
-            <li><a href="investing.html" class="dropdown-link">Investing 101</a></li>
-            <li><a href="tools.html" class="dropdown-link">Investment Tools</a></li>
-            <li><a href="glossary.html" class="dropdown-link">Glossary</a></li>
-          </ul>
+    </nav>
+
+    <div class="container">
+        <div class="demo-content">
+            <h1>Chillarverse Navbar</h1>
+            <p>This demo shows a comic-style navbar with dropdown functionality. Hover over the 💸 Budget, 📈 Invest, or 🔥 FIRE items to see their dropdown menus. The navbar features a bold blue background with comic-inspired styling and green accents.</p>
+            
+            <div class="instructions">
+                <h2>Implementation Details</h2>
+                <ul>
+                    <li>Logo on the left with "Chillarverse" text</li>
+                    <li>Three main categories on the right with emoji icons</li>
+                    <li>Dropdown menus appear on hover with comic-style borders</li>
+                    <li>Responsive design - collapses to hamburger menu on mobile</li>
+                    <li>Uses Bangers and Comic Neue fonts for comic book feel</li>
+                    <li>Blue primary color (#1a5fba) with green accents (#2ecc71)</li>
+                </ul>
+                <p>For your actual site, copy the navbar HTML structure and CSS styles to your project.</p>
+            </div>
         </div>
-      </li>
-      
-      <!-- FIRE Universe -->
-      <li class="nav-item universe-fire">
-        <a href="#" class="nav-link">🔥 FIRE</a>
-        <div class="dropdown">
-          <ul class="dropdown-content">
-            <li><a href="fire.html" class="dropdown-link">What is FIRE?</a></li>
-            <li><a href="career.html" class="dropdown-link">Career Freedom</a></li>
-            <li><a href="escape.html" class="dropdown-link">Escape Plan</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    
-    <!-- Mobile Menu Toggle -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span class="hamburger"></span>
-    </button>
-  </div>
-</nav>
+    </div>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            toggleButton.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                
+                // Animate hamburger icon
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
