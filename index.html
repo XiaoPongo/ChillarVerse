@@ -82,18 +82,19 @@
         /* Hero section - Comic book cover style */
         .hero {
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 60px 20px 40px;
             position: relative;
-            margin-top: 30px;
+            margin: 30px auto;
+            max-width: 1200px;
         }
         
         .hero::before {
             content: "";
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
             border: var(--comic-border);
             border-radius: 10px;
             z-index: -1;
@@ -109,44 +110,43 @@
         }
         
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             color: var(--accent-yellow);
             margin-bottom: 20px;
-            line-height: 1;
+            line-height: 1.1;
         }
         
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             color: var(--secondary-green);
         }
         
+        .starburst-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
+        
         .comic-starburst {
-            position: absolute;
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             background: var(--accent-red);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Bangers', cursive;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             transform: rotate(-15deg);
             border: var(--comic-border);
             box-shadow: var(--comic-shadow);
-            z-index: 3;
             animation: pulse 2s infinite;
-        }
-        
-        .starburst-1 {
-            top: 10%;
-            left: 5%;
-        }
-        
-        .starburst-2 {
-            bottom: 10%;
-            right: 5%;
+            padding: 10px;
+            text-align: center;
+            line-height: 1.3;
         }
         
         /* Button styles */
@@ -161,11 +161,12 @@
             border: var(--comic-border);
             border-radius: 8px;
             box-shadow: var(--comic-shadow);
-            margin-top: 20px;
+            margin: 20px 0;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             letter-spacing: 1px;
+            z-index: 5;
         }
         
         .hero-btn:hover {
@@ -181,26 +182,25 @@
         
         /* Features section - Your Power Trio */
         .features {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 60px;
+            font-size: 3rem;
+            margin-bottom: 40px;
             color: var(--accent-yellow);
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
         }
         
         .section-title::after {
             content: "";
             position: absolute;
             bottom: -15px;
-            left: 10%;
-            width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
             height: 4px;
             background: var(--secondary-green);
             border-radius: 2px;
@@ -210,20 +210,22 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
         
         .comic-card {
             background: var(--light);
             border: var(--comic-border);
             border-radius: 10px;
-            padding: 30px;
+            padding: 25px;
             box-shadow: var(--comic-shadow);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             color: var(--dark);
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
         
         .comic-card:hover {
@@ -238,14 +240,15 @@
         }
         
         .card-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 15px;
             color: var(--primary-blue);
         }
         
         .card-desc {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
         
         .card-btn {
@@ -259,6 +262,7 @@
             border: var(--comic-border);
             border-radius: 6px;
             transition: all 0.3s ease;
+            margin-top: 10px;
         }
         
         .card-btn:hover {
@@ -266,36 +270,32 @@
             transform: scale(1.05);
         }
         
-        /* Comic speech bubble */
+        /* Comic speech bubble - now contained inside card */
         .speech-bubble {
-            position: absolute;
+            position: relative;
             background: white;
             border: var(--comic-border);
             border-radius: 20px;
             padding: 15px;
-            font-size: 1.1rem;
-            max-width: 200px;
+            font-size: 1rem;
+            margin: 15px 0;
             box-shadow: var(--comic-shadow);
-            z-index: 10;
+            z-index: 1;
             animation: float 6s infinite ease-in-out;
         }
         
-        .bubble-1 {
-            top: -40px;
-            right: -30px;
-            transform: rotate(5deg);
-        }
-        
-        .bubble-2 {
-            bottom: -40px;
-            left: -30px;
-            transform: rotate(-5deg);
-        }
-        
-        .bubble-3 {
-            top: -40px;
-            left: -30px;
-            transform: rotate(-5deg);
+        .speech-bubble::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-right: var(--comic-border);
+            border-bottom: var(--comic-border);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            z-index: -1;
         }
         
         /* Footer placeholder */
@@ -304,6 +304,7 @@
             text-align: center;
             font-size: 1.1rem;
             position: relative;
+            margin-top: 40px;
         }
         
         #footer::before {
@@ -325,35 +326,44 @@
         }
         
         @keyframes float {
-            0% { transform: translateY(0) rotate(5deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-            100% { transform: translateY(0) rotate(5deg); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
         }
         
         /* Responsive design */
         @media (max-width: 900px) {
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
             
             .hero h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .section-title {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+            }
+            
+            .comic-starburst {
+                width: 140px;
+                height: 140px;
+                font-size: 1.3rem;
             }
         }
         
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 15px 40px;
+                padding: 50px 15px 30px;
+                margin: 20px 15px;
             }
             
-            .comic-starburst {
-                width: 120px;
-                height: 120px;
-                font-size: 1.4rem;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
             }
             
             .hero-btn {
@@ -364,38 +374,55 @@
             .power-trio {
                 grid-template-columns: 1fr;
                 max-width: 500px;
-                margin: 50px auto 0;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.8rem;
+                margin: 40px auto 0;
             }
             
-            .hero h2 {
-                font-size: 1.6rem;
+            .starburst-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .comic-starburst {
+                transform: rotate(-10deg);
             }
             
             .section-title {
                 font-size: 2.2rem;
             }
             
-            .comic-starburst {
-                position: relative;
-                margin: 20px auto;
-                transform: rotate(-15deg);
-                width: 140px;
-                height: 140px;
+            .section-title::after {
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .starburst-1, .starburst-2 {
-                position: relative;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: 30px auto;
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .comic-starburst {
+                width: 130px;
+                height: 130px;
+                font-size: 1.2rem;
+                transform: rotate(-8deg);
+            }
+            
+            .hero-btn {
+                font-size: 1.4rem;
+                padding: 10px 25px;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -412,12 +439,14 @@
                     <h1 class="comic-title">💸 Welcome to the Chillarverse!</h1>
                     <h2>Where your rupees become superheroes</h2>
                     
-                    <div class="comic-starburst starburst-1">
-                        NEW <br>ADVENTURE!
-                    </div>
-                    
-                    <div class="comic-starburst starburst-2">
-                        FINANCIAL <br>SUPERPOWERS!
+                    <div class="starburst-container">
+                        <div class="comic-starburst">
+                            NEW <br>ADVENTURE!
+                        </div>
+                        
+                        <div class="comic-starburst">
+                            FINANCIAL <br>SUPERPOWERS!
+                        </div>
                     </div>
                     
                     <a href="basics.html" class="hero-btn">Begin Your Origin Story</a>
@@ -435,36 +464,39 @@
                     <div class="comic-card">
                         <i class="fas fa-chart-pie card-icon"></i>
                         <h3 class="card-title">Budgeting</h3>
-                        <p class="card-desc">Master the Art of Rupee Control and take command of your financial destiny!</p>
-                        <a href="budgeting.html" class="card-btn">Learn More</a>
                         
-                        <div class="speech-bubble bubble-1">
+                        <div class="speech-bubble">
                             "I used to lose track of my rupees, now I control them!"
                         </div>
+                        
+                        <p class="card-desc">Master the Art of Rupee Control and take command of your financial destiny!</p>
+                        <a href="budgeting.html" class="card-btn">Learn More</a>
                     </div>
                     
                     <!-- Investing Card -->
                     <div class="comic-card">
                         <i class="fas fa-chart-line card-icon"></i>
                         <h3 class="card-title">Investing</h3>
-                        <p class="card-desc">Let Your Money Multiply in the Multiverse of investment opportunities!</p>
-                        <a href="investing.html" class="card-btn">Learn More</a>
                         
-                        <div class="speech-bubble bubble-2">
+                        <div class="speech-bubble">
                             "My investments are growing faster than a superhero!"
                         </div>
+                        
+                        <p class="card-desc">Let Your Money Multiply in the Multiverse of investment opportunities!</p>
+                        <a href="investing.html" class="card-btn">Learn More</a>
                     </div>
                     
                     <!-- FIRE Card -->
                     <div class="comic-card">
                         <i class="fas fa-fire card-icon"></i>
                         <h3 class="card-title">FIRE</h3>
-                        <p class="card-desc">Break Free from the Rat Race and achieve Financial Independence!</p>
-                        <a href="fire.html" class="card-btn">Learn More</a>
                         
-                        <div class="speech-bubble bubble-3">
+                        <div class="speech-bubble">
                             "I escaped the 9-5 grind with Chillarverse!"
                         </div>
+                        
+                        <p class="card-desc">Break Free from the Rat Race and achieve Financial Independence!</p>
+                        <a href="fire.html" class="card-btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -487,7 +519,7 @@
                 document.getElementById(id).innerHTML = html;
             } catch (error) {
                 console.error(error);
-                // Fallback content if needed
+                // Fallback content
                 if (id === 'navbar') {
                     document.getElementById(id).innerHTML = `
                         <nav class="container">
@@ -508,6 +540,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadHTML('navbar', 'components/navbar.html');
             loadHTML('footer', 'components/footer.html');
+            
+            // Set current year in footer
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
         });
     </script>
 </body>
