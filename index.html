@@ -1,185 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChillarVerse</title>
-  <script src="config.js"></script>
-  <script src="scripts.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-    :root {
-      --primary-color: #333366;
-      --secondary-color: #FF4500;
-      --background-color: #000033;
-      --accent-color: #FFFF00;
-      --text-color: #FFFFFF;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: var(--primary-color);
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: var(--accent-color);
-    }
-
-    .hero p {
-      font-size: 1.5em;
-      color: var(--text-color);
-    }
-
-    .universes {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
-
-    .universe-card {
-      background-color: var(--primary-color);
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-
-    .universe-card:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px var(--accent-color);
-    }
-
-    .universe-card h2 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
-      font-size: 1.5em;
-    }
-
-    .universe-card p {
-      color: var(--text-color);
-      font-size: 1em;
-      padding: 0 10px;
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer .social-icons a {
-      color: var(--accent-color);
-      margin: 0 10px;
-      font-size: 1.5em;
-    }
-
-    @media (max-width: 600px) {
-      .universes {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .universe-card {
-        width: 80%;
-        height: auto;
-        border-radius: 20px;
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1.2em;
-      }
-
-      nav ul {
-        flex-direction: column;
-      }
-
-      nav ul li {
-        margin: 10px 0;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chillarverse – Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base styles for the entire page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        /* Layout containers */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Hero section styles */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid white;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Features section */
+        .features {
+            padding: 5rem 1rem;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .feature-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Footer placeholder styling */
+        #footer-placeholder {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .features {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
-<body onload="includeHTML()">
-  <div w3-include-html="components/header.html"></div>
-  <main>
-    <section class="hero">
-      <h1>ChillarVerse</h1>
-      <p>Welcome to the multiverse of money wisdom</p>
-    </section>
-    <section class="universes">
-      <!-- Universe Card Template -->
-      <div class="universe-card" onclick="location.href='budgetverse.html'">
-        <h2>BudgetVerse</h2>
-        <p>A no-nonsense savings reality</p>
-      </div>
-      <!-- End Template -->
-      <div class="universe-card" onclick="location.href='cryptoverse.html'">
-        <h2>CryptoVerse</h2>
-        <p>Where coins flip you</p>
-      </div>
-      <div class="universe-card" onclick="location.href='lazysaverland.html'">
-        <h2>LazySaverLand</h2>
-        <p>Earn more by doing less</p>
-      </div>
-      <!-- Add more universe cards here -->
-    </section>
-  </main>
-  <div w3-include-html="components/footer.html"></div>
+<body>
+    <!-- Navbar placeholder -->
+    <div id="navbar">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">Chillarverse</a>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="basics.html">Money Basics</a></li>
+                    <li><a href="budgeting.html">Budgeting</a></li>
+                    <li><a href="investing.html">Investing</a></li>
+                    <li><a href="fire.html">FIRE</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Main content -->
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Master Your Money, Build Your Future</h1>
+                <p>Welcome to Chillarverse - your journey to financial independence starts here. Learn essential money skills, discover smart investment strategies, and take control of your financial destiny.</p>
+                <a href="basics.html" class="btn">Start Your Financial Journey</a>
+            </div>
+        </section>
+        
+        <!-- Features section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Explore Financial Freedom</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <h3 class="feature-title">Budgeting Mastery</h3>
+                        <p class="feature-desc">Learn to create budgets that work for your lifestyle, track expenses effectively, and achieve your savings goals without sacrificing what you love.</p>
+                        <a href="budgeting.html" class="feature-link">Learn Budgeting →</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3 class="feature-title">Smart Investing</h3>
+                        <p class="feature-desc">Discover how to build wealth through smart investing. From stocks to mutual funds, learn strategies that match your risk profile and goals.</p>
+                        <a href="investing.html" class="feature-link">Explore Investments →</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h3 class="feature-title">FIRE Movement</h3>
+                        <p class="feature-desc">Achieve Financial Independence and Retire Early. Learn the principles and strategies to escape the 9-5 grind and live life on your terms.</p>
+                        <a href="fire.html" class="feature-link">Join FIRE Movement →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder">
+        <div class="container">
+            <p>Chillarverse © 2023 | Made with ₹₹ in India</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript to load components -->
+    <script>
+        // Function to load HTML snippets
+        async function loadHTML(id, path) {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${path}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(id).innerHTML = html;
+            } catch (error) {
+                console.error(error);
+                // Keep the fallback content if any exists
+            }
+        }
+
+        // Load navbar and footer
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHTML('navbar', 'components/navbar.html');
+            loadHTML('footer-placeholder', 'components/footer.html');
+        });
+    </script>
 </body>
 </html>
