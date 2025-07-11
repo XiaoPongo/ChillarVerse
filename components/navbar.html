@@ -1,19 +1,50 @@
 <nav class="navbar">
-    <div class="container">
-        <a href="index.html" class="logo">Chillarverse</a>
-        
-        <button class="nav-toggle" aria-label="Toggle navigation">
-            <span class="hamburger"></span>
-        </button>
-        
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="basics.html">Money Basics</a></li>
-            <li><a href="budgeting.html">Budgeting</a></li>
-            <li><a href="investing.html">Investing</a></li>
-            <li><a href="fire.html">FIRE</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-    </div>
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="index.html" class="logo">Chillarverse</a>
+    
+    <!-- Navigation Menu -->
+    <ul class="nav-menu">
+      <!-- Budget Universe -->
+      <li class="nav-item universe-budget">
+        <a href="#" class="nav-link">💸 Budget</a>
+        <div class="dropdown">
+          <ul class="dropdown-content">
+            <li><a href="basics.html" class="dropdown-link">Money Basics</a></li>
+            <li><a href="banking.html" class="dropdown-link">Banking & UPI</a></li>
+            <li><a href="budgeting.html" class="dropdown-link">Budgeting Tools</a></li>
+          </ul>
+        </div>
+      </li>
+      
+      <!-- Invest Universe -->
+      <li class="nav-item universe-invest">
+        <a href="#" class="nav-link">📈 Invest</a>
+        <div class="dropdown">
+          <ul class="dropdown-content">
+            <li><a href="investing.html" class="dropdown-link">Investing 101</a></li>
+            <li><a href="tools.html" class="dropdown-link">Investment Tools</a></li>
+            <li><a href="glossary.html" class="dropdown-link">Glossary</a></li>
+          </ul>
+        </div>
+      </li>
+      
+      <!-- FIRE Universe -->
+      <li class="nav-item universe-fire">
+        <a href="#" class="nav-link">🔥 FIRE</a>
+        <div class="dropdown">
+          <ul class="dropdown-content">
+            <li><a href="fire.html" class="dropdown-link">What is FIRE?</a></li>
+            <li><a href="career.html" class="dropdown-link">Career Freedom</a></li>
+            <li><a href="escape.html" class="dropdown-link">Escape Plan</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+  </div>
 </nav>
